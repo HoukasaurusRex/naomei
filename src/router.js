@@ -17,10 +17,10 @@ export default new Router({
       path: "/surprise",
       name: "surprise",
       // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
+      // this generates a separate chunk (surprise.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/Surprise.vue")
+        import(/* webpackChunkName: "surprise" */ "./views/Surprise.vue")
     }
   ]
 });
