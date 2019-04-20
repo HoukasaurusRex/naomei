@@ -2,9 +2,13 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/surprise">Click Me</router-link>
     </div>
-    <router-view />
+    <KeepAlive>
+      <transition name="fade" mode="out-in">
+        <RouterView />
+      </transition>
+    </KeepAlive>
   </div>
 </template>
 
@@ -25,5 +29,14 @@
       color: #42b983;
     }
   }
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
