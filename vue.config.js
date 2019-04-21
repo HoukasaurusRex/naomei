@@ -1,6 +1,6 @@
 module.exports = {
   lintOnSave: undefined,
-  publicPath: "/birthday-song/",
+  publicPath: "/naomei/",
   outputDir: undefined,
   assetsDir: undefined,
   runtimeCompiler: undefined,
