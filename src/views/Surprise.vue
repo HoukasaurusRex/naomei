@@ -1,10 +1,19 @@
 <template>
   <main class="surprise">
-    <img
-      alt="Naomei, May, and JT leaping to the heavens"
-      width="500"
-      src="../assets/bday3.png"
-    />
+    <picture>
+      <source
+        media="(min-width: 600px)"
+        srcset="../assets/bday-500.png"
+        type="image/"
+      />
+      <source srcset="../assets/bday-100.png" type="image/" />
+      <img
+        alt="Naomei, May, and JT leaping to the heavens"
+        width="50%"
+        src="../assets/bday-500.png"
+        style="max-width: 500px;"
+      />
+    </picture>
     <Song :msg="msg" />
   </main>
 </template>

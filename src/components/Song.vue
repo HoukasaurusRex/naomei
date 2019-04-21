@@ -11,16 +11,17 @@
         >
       </select>
 
-      <label for="rate">Rate:</label>
+      <!-- <label for="rate">Rate:</label>
       <input name="rate" type="range" min="0" max="3" value="1" step="0.1" />
 
       <label for="pitch">Pitch:</label>
-      <input name="pitch" type="range" min="0" max="2" step="0.1" />
+      <input name="pitch" type="range" min="0" max="2" step="0.1" /> -->
 
-      <textarea name="text">{{ msg }}</textarea>
+      <textarea v-model="msg" name="text"></textarea>
 
       <div class="bottom-buttons">
-        <button @click="speak" id="speak">Speak</button>
+        <button @click="stop">Stop</button>
+        <button @click="speak">Speak</button>
       </div>
     </div>
   </section>
@@ -44,11 +45,11 @@ export default {
   computed: {
     voices() {
       return this.$store.getters.getVoices;
-    },
-    rate() {
-      return;
-    },
-    pitch() {}
+    }
+    // rate() {
+    //   return;
+    // },
+    // pitch() {}
   },
   methods: {
     speak() {
@@ -60,10 +61,13 @@ export default {
       speechSynthesis.cancel();
       speechSynthesis.speak(message);
     },
-    rate() {},
-    pitch() {}
+    stop() {
+      speechSynthesis.cancel();
+    }
+    // rate() {},
+    // pitch() {}
   },
-  beforeMount() {
+  beforeCreate() {
     this.$store.dispatch({
       type: "getVoices"
     });
@@ -74,8 +78,8 @@ export default {
 <style lang="scss" scoped>
 .voiceinator {
   padding: 2rem;
-  width: 45rem;
-  margin: 0 auto;
+  // width: 100%;
+  margin: 2rem auto;
   border-radius: 1rem;
   position: relative;
   background: white;
@@ -83,7 +87,7 @@ export default {
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
 }
 .texttospeech h1 {
-  width: calc(100% + 4rem);
+  // width: calc(100% + 4rem);
   margin: -2rem 0 2rem -2rem;
   padding: 0.5rem;
   background: #ffc600;
